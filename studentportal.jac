@@ -1,6 +1,6 @@
 #phase1 Declarations=Jac+LLM
 import from byllm.llm { Model }
-glob llm = Model(model_name="gemini/gemini-2.0-flash", verbose=False);
+glob llm = Model(model_name="gemini/gemini-2.0-flash", api_key="AIzaSyDdxnJz9rjZYIm_z84nXTNFJr3EkgajPys", verbose=False);
 
 # Function definition
 def cbc_feedback(marks: dict, total_marks: int) -> str {
@@ -80,6 +80,8 @@ impl StudentPortal.show_results {
 
 # Entry point to run the program
 with entry:__main__ {
-    root spawn StudentPortal("ADM001", "Amina", {"Mathematics": 85, "English": 70, "Kiswahili": 78, "Science": 90, "Social Studies": 75});
-    root spawn StudentPortal("ADM002", "Brian", {"Mathematics": 60, "English": 55, "Kiswahili": 50, "Science": 65, "Social Studies": 58});
+    s1 = root spawn StudentPortal("ADM001", "Amina", {"Mathematics": 85, "English": 70, "Kiswahili": 78, "Science": 90, "Social Studies": 75});
+    s2 = root spawn StudentPortal("ADM002", "Brian", {"Mathematics": 60, "English": 55, "Kiswahili": 50, "Science": 65, "Social Studies": 58});
+    walk(StudentPortal.show_results, s1);
+    walk(StudentPortal.show_results, s2);
 }
