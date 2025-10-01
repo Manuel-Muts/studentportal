@@ -1,6 +1,5 @@
 #phase1 Declarations=Jac+LLM
 import from byllm.llm { Model }
-glob llm = Model(model_name="gemini/gemini-2.0-flash", api_key="AIzaSyDdxnJz9rjZYIm_z84nXTNFJr3EkgajPys", verbose=False);
 
 # Function definition
 def cbc_feedback(marks: dict, total_marks: int) -> str {
